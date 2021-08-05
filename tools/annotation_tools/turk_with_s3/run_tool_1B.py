@@ -41,9 +41,9 @@ if rc != 0:
     print("Error creating HIT jobs. Exiting.")
     sys.exit()
 # Wait for results to be ready
-print("Turk jobs created at : %s \n Waiting for results..." % time.ctime())
+print("Turk jobs created for tool B at : %s \n Waiting for results..." % time.ctime())
 
-time.sleep(100)
+time.sleep(200)
 # Check if results are ready
 rc = subprocess.call(
     [
@@ -67,5 +67,5 @@ if rc != 0:
 print("*** Postprocessing results ***")
 rc = subprocess.call(["python3 parse_tool_B_outputs.py"], shell=True)
 if rc != 0:
-    print("Error collating answers. Exiting.")
+    print("Error postprocessing tool B. Exiting.")
     sys.exit()

@@ -44,9 +44,9 @@ if rc != 0:
     print("Error creating HIT jobs. Exiting.")
     sys.exit()
 # Wait for results to be ready
-print("Turk jobs created at : %s \n Waiting for results..." % time.ctime())
+print("Turk jobs created for tool A at : %s \n Waiting for results..." % time.ctime())
 
-time.sleep(100)
+time.sleep(150)
 # Check if results are ready
 rc = subprocess.call(
     [
@@ -73,7 +73,7 @@ if rc != 0:
     sys.exit()
 
 # Create inputs for other tools
-print("*** Postprocessing results ***")
+print("*** Creating inputs for B and C ***")
 rc = subprocess.call(["python3 generate_input_for_tool_B_and_C.py"], shell=True)
 if rc != 0:
     print("Error generating input for other tools. Exiting.")
