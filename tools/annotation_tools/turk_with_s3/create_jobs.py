@@ -76,7 +76,7 @@ def create_turk_job(xml_file_path: str, tool_num: int, input_csv: str, job_spec_
                     continue
                 if headers[i] == "highlight_words":
                     format_row = row[i].replace("-", ",")
-                    json_str = json.dumps(format_row)
+                    # json_str = json.dumps(format_row)
                     value = quote(format_row)
                 else:
                     value = row[i].replace(" ", "%20")

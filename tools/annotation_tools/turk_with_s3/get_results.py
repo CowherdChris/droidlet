@@ -42,7 +42,7 @@ def get_results(mturk, output_csv: str, use_sandbox: bool):
         res = pd.read_csv(output_csv)
     else:
         res = pd.DataFrame()
-    NUM_TRIES_REMAINING = 5
+    NUM_TRIES_REMAINING = 10
     curr_hit_status = get_hit_list_status(mturk)
 
     while curr_hit_status["assignable"] or curr_hit_status["reviewable"]:
@@ -54,7 +54,7 @@ def get_results(mturk, output_csv: str, use_sandbox: bool):
         # If there are no reviewable HITs currently, wait 2 mins in between tries.
         if len(curr_hit_status["reviewable"]) == 0:
             NUM_TRIES_REMAINING -= 1
-            time.sleep(30)
+            time.sleep(100)
             curr_hit_status = get_hit_list_status(mturk)
             continue
 
