@@ -48,7 +48,8 @@ def get_results(mturk, output_csv: str, use_sandbox: bool):
     while curr_hit_status["assignable"] or curr_hit_status["reviewable"]:
         if NUM_TRIES_REMAINING == 0:
             break
-        print("*** Fetching results ***".format(NUM_TRIES_REMAINING))
+
+        print("*** Fetching results, try number: {}***".format(NUM_TRIES_REMAINING))
         # get reviewable hits, ie hits that have been completed
         # hits = [x['HITId'] for x in mturk.list_reviewable_hits()['HITs']]
         # If there are no reviewable HITs currently, wait 2 mins in between tries.
