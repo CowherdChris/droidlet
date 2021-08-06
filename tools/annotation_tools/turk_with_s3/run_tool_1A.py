@@ -46,6 +46,7 @@ if rc != 0:
 # Wait for results to be ready
 print("Turk jobs created for tool A at : %s \n Waiting for results..." % time.ctime())
 print("*"*50)
+
 time.sleep(150)
 # Check if results are ready
 rc = subprocess.call(

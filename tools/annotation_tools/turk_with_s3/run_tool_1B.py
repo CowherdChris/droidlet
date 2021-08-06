@@ -42,6 +42,7 @@ if rc != 0:
     sys.exit()
 # Wait for results to be ready
 print("Turk jobs created for tool B at : %s \n Waiting for results..." % time.ctime())
+print("*"*50)
 
 time.sleep(200)
 # Check if results are ready
@@ -56,6 +57,7 @@ if rc != 0:
     sys.exit()
 
 # Collate datasets
+print("*"*50)
 print("*** Collating turk outputs and input job specs ***")
 rc = subprocess.call(["python3 collate_answers.py --turk_output_csv B/turk_output.csv --job_spec_csv B/turk_job_specs.csv --collate_output_csv B/processed_outputs.csv"], shell=True)
 if rc != 0:
@@ -64,8 +66,10 @@ if rc != 0:
 
 
 # Postprocess
+print("*"*50)
 print("*** Postprocessing results ***")
 rc = subprocess.call(["python3 parse_tool_B_outputs.py"], shell=True)
 if rc != 0:
     print("Error postprocessing tool B. Exiting.")
     sys.exit()
+print("*"*50)
